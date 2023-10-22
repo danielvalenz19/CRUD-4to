@@ -44,18 +44,16 @@ public class AgregarReCon extends javax.swing.JFrame {
         jLCodigo1 = new javax.swing.JLabel();
         jLNombre1 = new javax.swing.JLabel();
         jLSexo1 = new javax.swing.JLabel();
-        jLPrograma1 = new javax.swing.JLabel();
         txtIdEstudiante = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         cmbSexo = new javax.swing.JComboBox();
-        jCBPrograma1 = new javax.swing.JComboBox();
         btnEliminar = new javax.swing.JButton();
         btnConsultar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaResultados = new javax.swing.JTable();
         jLabelNotaEditar = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         jPanelEditar = new javax.swing.JPanel();
         jLabelRegistar3 = new javax.swing.JLabel();
         jLCodigo3 = new javax.swing.JLabel();
@@ -76,18 +74,20 @@ public class AgregarReCon extends javax.swing.JFrame {
         jLSexo = new javax.swing.JLabel();
         jLPrograma = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
-        txtApellido = new javax.swing.JTextField();
         jCBSexo = new javax.swing.JComboBox();
-        jCBPrograma = new javax.swing.JComboBox();
         jButtonLimpiarR = new javax.swing.JButton();
         jButtonRegistar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         TxtNombre = new javax.swing.JTextField();
         txtFecha = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        jLPrograma1 = new javax.swing.JLabel();
+        txtApellido = new javax.swing.JTextField();
+        CmbSeccion = new javax.swing.JComboBox<>();
+        CmbGrado = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        BtnEstudiatesFrm = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabelRegistar2 = new javax.swing.JLabel();
@@ -116,11 +116,6 @@ public class AgregarReCon extends javax.swing.JFrame {
         jLSexo1.setText("Sexo");
         jPanelConsulta.add(jLSexo1);
         jLSexo1.setBounds(20, 150, 180, 30);
-
-        jLPrograma1.setFont(new java.awt.Font("Ubuntu", 1, 17)); // NOI18N
-        jLPrograma1.setText("Codigo Programa");
-        jPanelConsulta.add(jLPrograma1);
-        jLPrograma1.setBounds(20, 190, 180, 30);
         jPanelConsulta.add(txtIdEstudiante);
         txtIdEstudiante.setBounds(200, 70, 200, 30);
         jPanelConsulta.add(txtNombre);
@@ -129,19 +124,6 @@ public class AgregarReCon extends javax.swing.JFrame {
         cmbSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Femenino" }));
         jPanelConsulta.add(cmbSexo);
         cmbSexo.setBounds(200, 150, 200, 30);
-
-        jCBPrograma1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
-        jCBPrograma1.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
-            }
-            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
-            }
-            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
-                jCBPrograma1PopupMenuWillBecomeVisible(evt);
-            }
-        });
-        jPanelConsulta.add(jCBPrograma1);
-        jCBPrograma1.setBounds(200, 190, 200, 30);
 
         btnEliminar.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         btnEliminar.setText("Eliminar");
@@ -203,15 +185,14 @@ public class AgregarReCon extends javax.swing.JFrame {
         jPanelConsulta.add(jLabelNotaEditar);
         jLabelNotaEditar.setBounds(20, 392, 540, 15);
 
-        jButton4.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        jButton4.setText("LIMPIAR TABLA");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jButton5.setText("LIMPIAR TODO");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jButton5ActionPerformed(evt);
             }
         });
-        jPanelConsulta.add(jButton4);
-        jButton4.setBounds(420, 180, 140, 40);
+        jPanelConsulta.add(jButton5);
+        jButton5.setBounds(420, 190, 140, 30);
 
         jTabbedPane1.addTab("Consultar", jPanelConsulta);
 
@@ -322,30 +303,15 @@ public class AgregarReCon extends javax.swing.JFrame {
         jLSexo.setBounds(50, 150, 200, 30);
 
         jLPrograma.setFont(new java.awt.Font("Ubuntu", 1, 17)); // NOI18N
-        jLPrograma.setText("Codigo Programa");
+        jLPrograma.setText("Seccion");
         jPanelRegistro.add(jLPrograma);
-        jLPrograma.setBounds(50, 270, 200, 30);
+        jLPrograma.setBounds(40, 310, 200, 30);
         jPanelRegistro.add(txtId);
         txtId.setBounds(260, 70, 250, 30);
-        jPanelRegistro.add(txtApellido);
-        txtApellido.setBounds(260, 190, 250, 30);
 
         jCBSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Femenino" }));
         jPanelRegistro.add(jCBSexo);
         jCBSexo.setBounds(260, 150, 250, 30);
-
-        jCBPrograma.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
-        jCBPrograma.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
-            }
-            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
-            }
-            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
-                jCBProgramaPopupMenuWillBecomeVisible(evt);
-            }
-        });
-        jPanelRegistro.add(jCBPrograma);
-        jCBPrograma.setBounds(260, 270, 250, 30);
 
         jButtonLimpiarR.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jButtonLimpiarR.setText("LIMPIAR");
@@ -355,7 +321,7 @@ public class AgregarReCon extends javax.swing.JFrame {
             }
         });
         jPanelRegistro.add(jButtonLimpiarR);
-        jButtonLimpiarR.setBounds(290, 350, 180, 35);
+        jButtonLimpiarR.setBounds(300, 370, 180, 35);
 
         jButtonRegistar.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jButtonRegistar.setText("REGISTAR");
@@ -365,7 +331,7 @@ public class AgregarReCon extends javax.swing.JFrame {
             }
         });
         jPanelRegistro.add(jButtonRegistar);
-        jButtonRegistar.setBounds(100, 350, 170, 35);
+        jButtonRegistar.setBounds(110, 370, 170, 35);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel2.setText("Apellido");
@@ -381,14 +347,29 @@ public class AgregarReCon extends javax.swing.JFrame {
         jPanelRegistro.add(jLabel3);
         jLabel3.setBounds(50, 230, 180, 30);
 
+        jLPrograma1.setFont(new java.awt.Font("Ubuntu", 1, 17)); // NOI18N
+        jLPrograma1.setText("Grado");
+        jPanelRegistro.add(jLPrograma1);
+        jLPrograma1.setBounds(50, 270, 200, 30);
+        jPanelRegistro.add(txtApellido);
+        txtApellido.setBounds(260, 190, 250, 30);
+
+        CmbSeccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seccion A", "Seccion B" }));
+        jPanelRegistro.add(CmbSeccion);
+        CmbSeccion.setBounds(260, 310, 240, 30);
+
+        CmbGrado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Primero", "Segundo" }));
+        jPanelRegistro.add(CmbGrado);
+        CmbGrado.setBounds(260, 270, 240, 30);
+
         jTabbedPane1.addTab("Registar", jPanelRegistro);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CapaPresentacion/Universidad Mariano 3.jpg"))); // NOI18N
 
-        jButton1.setText("Estudiantes");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BtnEstudiatesFrm.setText("Estudiantes");
+        BtnEstudiatesFrm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BtnEstudiatesFrmActionPerformed(evt);
             }
         });
 
@@ -410,7 +391,7 @@ public class AgregarReCon extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton3)
                     .addComponent(jButton2)
-                    .addComponent(jButton1)
+                    .addComponent(BtnEstudiatesFrm)
                     .addComponent(jLabel1))
                 .addGap(42, 42, 42))
         );
@@ -420,7 +401,7 @@ public class AgregarReCon extends javax.swing.JFrame {
                 .addGap(62, 62, 62)
                 .addComponent(jLabel1)
                 .addGap(59, 59, 59)
-                .addComponent(jButton1)
+                .addComponent(BtnEstudiatesFrm)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addGap(18, 18, 18)
@@ -459,14 +440,27 @@ public class AgregarReCon extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCBPrograma1PopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_jCBPrograma1PopupMenuWillBecomeVisible
-        //<editor-fold defaultstate="collapsed" desc="jCBPrograma1PopupMenuWillBecomeVisible()">
-
-        //</editor-fold>
-    }//GEN-LAST:event_jCBPrograma1PopupMenuWillBecomeVisible
-
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // Obtener el modelo de la tabla
+        DefaultTableModel modelo = (DefaultTableModel) TablaResultados.getModel();
 
+        // Obtener la fila seleccionada
+        int filaSeleccionada = TablaResultados.getSelectedRow();
+
+        // Verificar si hay una fila seleccionada
+        if (filaSeleccionada == -1) {
+            JOptionPane.showMessageDialog(null, "Selecciona una fila para eliminar", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            // Obtener el valor de la primera columna en la fila seleccionada (suponiendo que es el ID)
+            int idEstudiante = Integer.parseInt(modelo.getValueAt(filaSeleccionada, 0).toString());
+
+            // Crear una instancia de FuncionesEstudiantes y llamar al método eliminarEstudiante
+            FuncionesEstudiantes funcionesEstudiantes = new FuncionesEstudiantes();
+            funcionesEstudiantes.eliminarEstudiante(idEstudiante, modelo);
+
+            // Eliminar la fila de la tabla
+            modelo.removeRow(filaSeleccionada);
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
@@ -614,29 +608,26 @@ public class AgregarReCon extends javax.swing.JFrame {
         cmbSexo.setSelectedIndex(0);  // Puedes ajustar esto según la posición de las opciones en tu combobox
         txtFecha.setText("");
     }
+
+    private void limpiarConsultas() {
+        txtIdEstudiante.setText("");
+        txtNombre.setText("");
+    }
+
     private void jButtonLimpiarRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarRActionPerformed
 
     }//GEN-LAST:event_jButtonLimpiarRActionPerformed
 
-    private void jCBProgramaPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_jCBProgramaPopupMenuWillBecomeVisible
+    private void BtnEstudiatesFrmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEstudiatesFrmActionPerformed
+        Estudiante e = new Estudiante();
+        e.setVisible(true);
+        dispose();
 
-    }//GEN-LAST:event_jCBProgramaPopupMenuWillBecomeVisible
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BtnEstudiatesFrmActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // Crear una instancia de FuncionesEstudiantes
-        FuncionesEstudiantes funcionesEstudiantes = new FuncionesEstudiantes();
-
-        // Llamar al método limpiarTabla y pasar el modelo de la tabla
-        funcionesEstudiantes.limpiarTabla((DefaultTableModel) TablaResultados.getModel());    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void TablaResultadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaResultadosMouseClicked
         // Obtener el modelo de la tabla
@@ -658,6 +649,17 @@ public class AgregarReCon extends javax.swing.JFrame {
             cmbSexo.setSelectedItem(sexo.toString());
         }    }//GEN-LAST:event_TablaResultadosMouseClicked
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // Crear una instancia de FuncionesEstudiantes
+        FuncionesEstudiantes funcionesEstudiantes = new FuncionesEstudiantes();
+
+        // Llamar al método limpiarTabla y pasar el modelo de la tabla
+        funcionesEstudiantes.limpiarTabla((DefaultTableModel) TablaResultados.getModel());
+
+        limpiarConsultas();
+
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -672,16 +674,24 @@ public class AgregarReCon extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AgregarReCon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AgregarReCon.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AgregarReCon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AgregarReCon.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AgregarReCon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AgregarReCon.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AgregarReCon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AgregarReCon.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -694,23 +704,23 @@ public class AgregarReCon extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnEstudiatesFrm;
+    private javax.swing.JComboBox<String> CmbGrado;
+    private javax.swing.JComboBox<String> CmbSeccion;
     private javax.swing.JTable TablaResultados;
     private javax.swing.JTextField TxtNombre;
     private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JComboBox cmbSexo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButtonActualizar;
     private javax.swing.JButton jButtonEliminar;
     private javax.swing.JButton jButtonLimpiarE;
     private javax.swing.JButton jButtonLimpiarR;
     private javax.swing.JButton jButtonRegistar;
-    private javax.swing.JComboBox jCBPrograma;
-    private javax.swing.JComboBox jCBPrograma1;
     private javax.swing.JComboBox jCBPrograma3;
     private javax.swing.JComboBox jCBSexo;
     private javax.swing.JComboBox jCBSexo3;

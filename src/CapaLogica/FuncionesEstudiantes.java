@@ -7,12 +7,15 @@ package CapaLogica;
 import CapaDatos.Conexion;
 import CapaPresentacion.AgregarReCon;
 import CapaPresentacion.FrmLogin;
+import java.awt.Component;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -130,5 +133,88 @@ public class FuncionesEstudiantes extends Conexion {
         }
     }
 
-   
+    public void eliminarEstudiante(int idEstudiante, DefaultTableModel modelo) {
+        Conexion db = new Conexion();
+        Connection cn = db.getConnection();
+        String sql = "DELETE FROM estudiantes WHERE id_estudiante = ?";
+
+        try {
+            PreparedStatement pst = cn.prepareStatement(sql);
+            pst.setInt(1, idEstudiante);
+            pst.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Estudiante eliminado correctamente");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al eliminar estudiante: " + e, "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            db.close(); // Cerrar la conexión al finalizar
+        }
+    }
+
+//se pararaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    public void mostrarEstudiantesEnTabla(JTable tabla, JButton btnEstudiante, JButton btnProfesor) {
+        // Deshabilitar el botón de estudiantes
+        btnEstudiante.setEnabled(false);
+        // Habilitar el botón de profesores
+        btnProfesor.setEnabled(true);
+
+        // Limpiar la tabla antes de mostrar nuevos resultados
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        limpiarTabla(modelo);
+
+        String consultasql = "SELECT id_estudiante, nombre, apellidos, fecha_nacimiento, sexo FROM estudiantes";
+        String data[] = new String[5];
+
+        Connection cn = getConnection(); // Obtener la conexión
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(consultasql);
+            while (rs.next()) {
+                data[0] = rs.getString(1);
+                data[1] = rs.getString(2);
+                data[2] = rs.getString(3);
+                data[3] = rs.getString(4);
+                data[4] = rs.getString(5);
+                modelo.addRow(data);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al mostrar los datos: " + e);
+        } finally {
+            close(); // Cerrar la conexión al finalizar
+        }
+    }
+
+    public void mostrarProfesoresEnTabla(JTable tabla, JButton btnEstudiante, JButton btnProfesor) {
+        // Deshabilitar el botón de profesores
+        btnProfesor.setEnabled(false);
+        // Habilitar el botón de estudiantes
+        btnEstudiante.setEnabled(true);
+
+        // Limpiar la tabla antes de mostrar nuevos resultados
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        limpiarTabla(modelo);
+
+        String consultasql = "SELECT id_catedratico, nombre, apellidos, fecha_nacimiento FROM catedraticos";
+        String data[] = new String[4];
+
+        Connection cn = getConnection(); // Obtener la conexión
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(consultasql);
+            while (rs.next()) {
+                data[0] = rs.getString(1);
+                data[1] = rs.getString(2);
+                data[2] = rs.getString(3);
+                data[3] = rs.getString(4);
+                modelo.addRow(data);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al mostrar los datos: " + e);
+        } finally {
+            close(); // Cerrar la conexión al finalizar
+        }
+    }
+
 }
