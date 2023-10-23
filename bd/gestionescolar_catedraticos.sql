@@ -23,12 +23,12 @@ DROP TABLE IF EXISTS `catedraticos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `catedraticos` (
-  `id_catedratico` int NOT NULL,
+  `id_catedratico` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) DEFAULT NULL,
   `apellidos` varchar(255) DEFAULT NULL,
-  `fecha_nacimiento` date DEFAULT NULL,
+  `fecha_nacimiento` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`id_catedratico`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,6 +37,7 @@ CREATE TABLE `catedraticos` (
 
 LOCK TABLES `catedraticos` WRITE;
 /*!40000 ALTER TABLE `catedraticos` DISABLE KEYS */;
+INSERT INTO `catedraticos` VALUES (1,'Jose','nocs','12/12/12'),(2,'Marian','Gonzales','12/12/12');
 /*!40000 ALTER TABLE `catedraticos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-19 12:53:45
+-- Dump completed on 2023-10-23 12:10:10

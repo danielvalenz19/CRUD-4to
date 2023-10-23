@@ -26,7 +26,7 @@ CREATE TABLE `estudiantes` (
   `id_estudiante` int NOT NULL,
   `nombre` varchar(255) DEFAULT NULL,
   `apellidos` varchar(255) DEFAULT NULL,
-  `fecha_nacimiento` varchar(255) DEFAULT NULL,
+  `fecha_nacimiento` date DEFAULT NULL,
   `foto_path` varchar(255) DEFAULT NULL,
   `sexo` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id_estudiante`)
@@ -39,7 +39,7 @@ CREATE TABLE `estudiantes` (
 
 LOCK TABLES `estudiantes` WRITE;
 /*!40000 ALTER TABLE `estudiantes` DISABLE KEYS */;
-INSERT INTO `estudiantes` VALUES (12,'Pedro','Bolaños','12/12/12',NULL,'Masculino'),(13,'','Marias','12/12/12',NULL,'Femenino'),(14,'Josefina','Rosales','12/12/12',NULL,'Femenino'),(15,'Josefina','Marianas','12/12/12',NULL,'Femenino'),(16,'','Rocio','12/12/12',NULL,'Masculino'),(17,'Mariano','Velazquez','12/12/12',NULL,'Masculino');
+INSERT INTO `estudiantes` VALUES (1,'Juan','Gomez','1995-05-10','/fotos/juan.jpg','Masculino'),(2,'Maria','Lopez','1998-08-22','/fotos/maria.jpg','Femenino'),(3,'Pedro','Rodriguez','1997-03-15','/fotos/pedro.jpg',NULL),(4,'Ana','Gutierrez','1996-02-18','/fotos/ana.jpg',NULL),(5,'Roberto','Ramirez','1997-07-25','/fotos/roberto.jpg',NULL),(6,'Luisa','Garcia','1999-04-30','/fotos/luisa.jpg','Femenino'),(7,'Javier','Martinez','1998-11-12','/fotos/javier.jpg',NULL),(8,'Carmen','Lopez','1996-09-05','/fotos/carmen.jpg',NULL),(9,'Diego','Fernandez','1997-01-20','/fotos/diego.jpg',NULL),(10,'Pedro','Quiñones','2012-12-12',NULL,'Femenino');
 /*!40000 ALTER TABLE `estudiantes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-19 12:53:46
+-- Dump completed on 2023-10-23 12:10:09

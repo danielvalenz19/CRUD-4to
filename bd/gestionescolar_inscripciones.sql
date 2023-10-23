@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `inscripciones`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `inscripciones` (
-  `id_inscripcion` int NOT NULL,
+  `id_inscripcion` int NOT NULL AUTO_INCREMENT,
   `id_estudiante` int DEFAULT NULL,
   `id_seccion` int DEFAULT NULL,
   PRIMARY KEY (`id_inscripcion`),
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-19 12:53:45
+-- Dump completed on 2023-10-23 12:10:10
