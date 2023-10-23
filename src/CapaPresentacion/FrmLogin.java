@@ -6,10 +6,7 @@ package CapaPresentacion;
 
 import CapaLogica.FuncionesEstudiantes;
 
-/**
- *
- * @author hetzo
- */
+
 public class FrmLogin extends javax.swing.JFrame {
 
     /**

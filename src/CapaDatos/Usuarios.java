@@ -4,10 +4,7 @@
  */
 package CapaDatos;
 
-/**
- *
- * @author hetzo
- */
+
 public class Usuarios {
     int id;
     String usuario;

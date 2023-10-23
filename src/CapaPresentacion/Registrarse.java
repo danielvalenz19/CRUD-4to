@@ -6,10 +6,6 @@ package CapaPresentacion;
 
 import CapaLogica.FuncionesEstudiantes;
 
-/**
- *
- * @author hetzo
- */
 public class Registrarse extends javax.swing.JFrame {
 
     /**

@@ -6,10 +6,7 @@ package CapaPresentacion;
 
 import CapaLogica.FuncionesEstudiantes;
 
-/**
- *
- * @author hetzo
- */
+
 public class Estudiante extends javax.swing.JFrame {
 
     /**
@@ -60,7 +57,7 @@ public class Estudiante extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tuTablaEstudiantes);
 
-        jButton1.setText("Regresar");
+        jButton1.setText("Regresar a principal");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -88,7 +85,7 @@ public class Estudiante extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(250, 250, 250)
                 .addComponent(jLabel2)
-                .addGap(69, 69, 69)
+                .addGap(51, 51, 51)
                 .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -107,7 +104,7 @@ public class Estudiante extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)

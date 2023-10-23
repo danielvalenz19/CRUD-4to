@@ -18,10 +18,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author hetzo
- */
+
 public class FuncionesEstudiantes extends Conexion {
 
     AgregarReCon agregarReCon = new AgregarReCon();
@@ -217,4 +214,30 @@ public class FuncionesEstudiantes extends Conexion {
         }
     }
 
+    public void mostrarCatedraticosEnTabla(JTable tabla) {
+        // Limpiar la tabla antes de mostrar nuevos resultados
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        limpiarTabla(modelo);
+
+        String consultasql = "SELECT id_catedratico, nombre, apellidos, fecha_nacimiento FROM catedraticos";
+        String data[] = new String[4];
+
+        Connection cn = getConnection(); // Obtener la conexión
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(consultasql);
+            while (rs.next()) {
+                data[0] = rs.getString(1);
+                data[1] = rs.getString(2);
+                data[2] = rs.getString(3);
+                data[3] = rs.getString(4);
+                modelo.addRow(data);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al mostrar los datos de catedráticos: " + e);
+        } finally {
+            close(); // Cerrar la conexión al finalizar
+        }
+    }
 }
