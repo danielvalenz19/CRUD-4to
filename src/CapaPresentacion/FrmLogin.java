@@ -138,7 +138,7 @@ public class FrmLogin extends javax.swing.JFrame {
 
     private void BtnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegistrarseActionPerformed
 
-        Registrarse registrarse = new Registrarse();
+        Registrarse registrarse = new Registrarse();//constructor
         registrarse.setVisible(true);
         dispose();
 
