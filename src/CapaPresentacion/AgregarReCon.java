@@ -6,15 +6,17 @@ package CapaPresentacion;
 
 import CapaDatos.Conexion;
 import CapaLogica.FuncionesEstudiantes;
+import CapaLogica.ManejadorImagenes;
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-
 
 public class AgregarReCon extends javax.swing.JFrame {
 
@@ -24,6 +26,7 @@ public class AgregarReCon extends javax.swing.JFrame {
     public AgregarReCon() {
         initComponents();
         this.setLocationRelativeTo(this);
+
     }
 
     /**
@@ -61,9 +64,6 @@ public class AgregarReCon extends javax.swing.JFrame {
         jTFNombre3 = new javax.swing.JTextField();
         jCBSexo3 = new javax.swing.JComboBox();
         jCBPrograma3 = new javax.swing.JComboBox();
-        jButtonLimpiarE = new javax.swing.JButton();
-        jButtonEliminar = new javax.swing.JButton();
-        jButtonActualizar = new javax.swing.JButton();
         jPanelRegistro = new javax.swing.JPanel();
         jLabelRegistar = new javax.swing.JLabel();
         jLCodigo = new javax.swing.JLabel();
@@ -85,8 +85,8 @@ public class AgregarReCon extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         BtnEstudiatesFrm = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        btnRepotes = new javax.swing.JButton();
         jLabelRegistar2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -157,11 +157,11 @@ public class AgregarReCon extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Codigo", "Nombre", "Apellido", "Fecha Nacimiento", "Sexo"
+                "Codigo", "Nombre", "Apellido", "Fecha Nacimiento", "Sexo", "Grado", "Seccion"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true
+                false, false, false, false, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -221,9 +221,12 @@ public class AgregarReCon extends javax.swing.JFrame {
         jPanelEditar.add(jLPrograma3);
         jLPrograma3.setBounds(50, 190, 200, 30);
 
+        jTFCodigo3.setEditable(false);
         jTFCodigo3.setEnabled(false);
         jPanelEditar.add(jTFCodigo3);
         jTFCodigo3.setBounds(260, 70, 250, 30);
+
+        jTFNombre3.setEditable(false);
         jPanelEditar.add(jTFNombre3);
         jTFNombre3.setBounds(260, 110, 250, 30);
 
@@ -243,36 +246,6 @@ public class AgregarReCon extends javax.swing.JFrame {
         });
         jPanelEditar.add(jCBPrograma3);
         jCBPrograma3.setBounds(260, 190, 250, 30);
-
-        jButtonLimpiarE.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        jButtonLimpiarE.setText("LIMPIAR");
-        jButtonLimpiarE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonLimpiarEActionPerformed(evt);
-            }
-        });
-        jPanelEditar.add(jButtonLimpiarE);
-        jButtonLimpiarE.setBounds(340, 250, 130, 35);
-
-        jButtonEliminar.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        jButtonEliminar.setText("ELIMINAR");
-        jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEliminarActionPerformed(evt);
-            }
-        });
-        jPanelEditar.add(jButtonEliminar);
-        jButtonEliminar.setBounds(200, 250, 130, 35);
-
-        jButtonActualizar.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        jButtonActualizar.setText("ACTUALIZAR");
-        jButtonActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonActualizarActionPerformed(evt);
-            }
-        });
-        jPanelEditar.add(jButtonActualizar);
-        jButtonActualizar.setBounds(60, 250, 130, 35);
 
         jTabbedPane1.addTab("Editar", jPanelEditar);
 
@@ -370,12 +343,17 @@ public class AgregarReCon extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Programa Academico");
-
         jButton3.setText("Catedratico");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
+            }
+        });
+
+        btnRepotes.setText("Repostes");
+        btnRepotes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRepotesActionPerformed(evt);
             }
         });
 
@@ -386,11 +364,11 @@ public class AgregarReCon extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(76, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRepotes)
                     .addComponent(jButton3)
-                    .addComponent(jButton2)
                     .addComponent(BtnEstudiatesFrm)
                     .addComponent(jLabel1))
-                .addGap(42, 42, 42))
+                .addGap(79, 79, 79))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -400,9 +378,9 @@ public class AgregarReCon extends javax.swing.JFrame {
                 .addGap(59, 59, 59)
                 .addComponent(BtnEstudiatesFrm)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addGap(18, 18, 18)
                 .addComponent(jButton3)
+                .addGap(18, 18, 18)
+                .addComponent(btnRepotes)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -417,20 +395,20 @@ public class AgregarReCon extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelRegistar2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(106, 106, 106))
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelRegistar2, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(73, Short.MAX_VALUE)
+                .addContainerGap(79, Short.MAX_VALUE)
                 .addComponent(jLabelRegistar2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54))
+                .addGap(38, 38, 38))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -528,18 +506,6 @@ public class AgregarReCon extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jCBPrograma3PopupMenuWillBecomeVisible
 
-    private void jButtonLimpiarEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarEActionPerformed
-
-    }//GEN-LAST:event_jButtonLimpiarEActionPerformed
-
-    private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
-
-    }//GEN-LAST:event_jButtonEliminarActionPerformed
-
-    private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
-
-    }//GEN-LAST:event_jButtonActualizarActionPerformed
-
     private void jButtonRegistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistarActionPerformed
         // Obtener los valores de los campos de texto y combobox
         String id = txtId.getText();
@@ -554,33 +520,47 @@ public class AgregarReCon extends javax.swing.JFrame {
         System.out.println("Apellido: " + apellido);
         System.out.println("Sexo: " + sexo);
         System.out.println("Fecha de Nacimiento: " + fechaNacimiento);
-
+        String grado = CmbGrado.getSelectedItem().toString();
+        String seccion = CmbSeccion.getSelectedItem().toString();
+        System.out.println("Grado: " + grado);
+        System.out.println("Sección: " + seccion);
         // Guardar la información en la base de datos
-        guardarEstudiante(id, nombre, apellido, sexo, fechaNacimiento);
-
         // Limpiar los campos después de guardar
         limpiarCampos();
+        JFileChooser fileChooser = new JFileChooser();
+        int result = fileChooser.showOpenDialog(this);
+
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            String rutaImagen = selectedFile.getAbsolutePath();
+
+            // Imprime la ruta para depuración
+            System.out.println("Ruta de la imagen: " + rutaImagen);
+
+            // Ahora, llama al método que guarda la información y la imagen
+            guardarEstudianteConImagen(id, nombre, apellido, sexo, fechaNacimiento, rutaImagen, grado, seccion);
+        }
     }//GEN-LAST:event_jButtonRegistarActionPerformed
-    private void guardarEstudiante(String id, String nombre, String apellido, String sexo, String fechaNacimiento) {
+    private void guardarEstudianteConImagen(String id, String nombre, String apellido, String sexo, String fechaNacimiento, String rutaImagen, String grado, String seccion) {
         Conexion db = new Conexion();
 
         try {
             Connection cn = db.getConnection();
-            String consultaSQL = "INSERT INTO estudiantes (id_estudiante, nombre, apellidos, sexo, fecha_nacimiento) VALUES (?, ?, ?, ?, ?)";
+            String consultaSQL = "INSERT INTO estudiantes (id_estudiante, nombre, apellidos, sexo, fecha_nacimiento, imagen, grado, seccion) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement pst = cn.prepareStatement(consultaSQL);
 
-            // Imprime los valores para depuración
-            System.out.println("ID (en guardarEstudiante): " + id);
-            System.out.println("Nombre (en guardarEstudiante): " + nombre);
-            System.out.println("Apellido (en guardarEstudiante): " + apellido);
-            System.out.println("Sexo (en guardarEstudiante): " + sexo);
-            System.out.println("Fecha de Nacimiento (en guardarEstudiante): " + fechaNacimiento);
-
+            // Código existente para la información del estudiante
             pst.setString(1, id);
             pst.setString(2, nombre);
             pst.setString(3, apellido);
             pst.setString(4, sexo);
             pst.setString(5, fechaNacimiento);
+            pst.setString(7, grado);
+            pst.setString(8, seccion);
+            ManejadorImagenes manejadorImagenes = new ManejadorImagenes();
+            // Cargar la imagen como bytes
+            byte[] imagenBytes = manejadorImagenes.leerImagenComoBytes(rutaImagen);
+            pst.setBytes(6, imagenBytes);
 
             int filasInsertadas = pst.executeUpdate();
 
@@ -590,10 +570,10 @@ public class AgregarReCon extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "No se pudo registrar el estudiante.");
             }
         } catch (SQLException e) {
-            e.printStackTrace();  // Imprime la traza de la excepción para obtener más detalles en la consola
+            e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Error al registrar el estudiante: " + e.getMessage());
         } finally {
-            db.close(); // Cerrar la conexión al finalizar
+            db.close();
         }
     }
 
@@ -631,6 +611,7 @@ public class AgregarReCon extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void TablaResultadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaResultadosMouseClicked
+
         // Obtener el modelo de la tabla
         DefaultTableModel modelo = (DefaultTableModel) TablaResultados.getModel();
 
@@ -648,6 +629,8 @@ public class AgregarReCon extends javax.swing.JFrame {
             txtIdEstudiante.setText(id.toString());
             txtNombre.setText(nombre.toString());
             cmbSexo.setSelectedItem(sexo.toString());
+
+
         }    }//GEN-LAST:event_TablaResultadosMouseClicked
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -660,6 +643,14 @@ public class AgregarReCon extends javax.swing.JFrame {
         limpiarConsultas();
 
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void btnRepotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRepotesActionPerformed
+        
+        Reportes r = new Reportes();
+        r.setVisible(true);
+        dispose();
+
+    }//GEN-LAST:event_btnRepotesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -713,13 +704,10 @@ public class AgregarReCon extends javax.swing.JFrame {
     private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnRepotes;
     private javax.swing.JComboBox cmbSexo;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButtonActualizar;
-    private javax.swing.JButton jButtonEliminar;
-    private javax.swing.JButton jButtonLimpiarE;
     private javax.swing.JButton jButtonLimpiarR;
     private javax.swing.JButton jButtonRegistar;
     private javax.swing.JComboBox jCBPrograma3;

@@ -6,8 +6,9 @@ package CapaPresentacion;
 
 import CapaLogica.FuncionesEstudiantes;
 
-
 public class Estudiante extends javax.swing.JFrame {
+
+    FuncionesEstudiantes funcionesEstudiantes = new FuncionesEstudiantes();
 
     /**
      * Creates new form Estudiantre
@@ -15,6 +16,16 @@ public class Estudiante extends javax.swing.JFrame {
     public Estudiante() {
         initComponents();
         this.setLocationRelativeTo(this);
+
+        // Llamar al método para mostrar estudiantes en la tabla
+        funcionesEstudiantes.mostrarEstudiantesEnTabla(tuTablaEstudiantes, BtnEstudiante, BtnProfesor);
+
+        tuTablaEstudiantes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tuTablaEstudiantesMouseClicked(evt);
+            }
+        });
+
     }
 
     /**
@@ -34,6 +45,9 @@ public class Estudiante extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         BtnProfesor = new javax.swing.JButton();
         BtnEstudiante = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        lblImagen = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,15 +60,20 @@ public class Estudiante extends javax.swing.JFrame {
 
         tuTablaEstudiantes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Id", "Nombre", "Apelido", "Fecha Nacimiento"
+                "Id", "Nombre", "Apelido", "Fecha Nacimiento", "sexo", "Grado", "Seccion"
             }
         ));
+        tuTablaEstudiantes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tuTablaEstudiantesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tuTablaEstudiantes);
 
         jButton1.setText("Regresar a principal");
@@ -78,27 +97,60 @@ public class Estudiante extends javax.swing.JFrame {
             }
         });
 
+        jPanel3.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(lblImagen)
+                .addContainerGap(70, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(lblImagen)
+                .addContainerGap(61, Short.MAX_VALUE))
+        );
+
+        jButton2.setText("Limpiar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(250, 250, 250)
-                .addComponent(jLabel2)
-                .addGap(51, 51, 51)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(80, Short.MAX_VALUE)
+                .addContainerGap(127, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(70, 70, 70))
+                        .addComponent(jLabel2)
+                        .addGap(51, 51, 51)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(BtnEstudiante)
                         .addGap(18, 18, 18)
                         .addComponent(BtnProfesor)
-                        .addGap(193, 193, 193))))
+                        .addGap(123, 123, 123))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(29, 29, 29))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,9 +163,16 @@ public class Estudiante extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnEstudiante)
                     .addComponent(BtnProfesor))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -163,12 +222,37 @@ public class Estudiante extends javax.swing.JFrame {
     private void BtnProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnProfesorActionPerformed
         // Instanciar la clase FuncionesEstudiantes
         FuncionesEstudiantes funcionesEstudiantes = new FuncionesEstudiantes();
-
-        // Llamar al método para mostrar profesores en la tabla
-        funcionesEstudiantes.mostrarProfesoresEnTabla(tuTablaEstudiantes, BtnEstudiante, BtnProfesor);
-
+        funcionesEstudiantes.mostrarCatedraticosEnTabla(tuTablaEstudiantes);
+        BtnEstudiante.setEnabled(true);
+        BtnProfesor.setEnabled(false);
+        
 
     }//GEN-LAST:event_BtnProfesorActionPerformed
+    private void cargarImagenEstudiante(String idEstudiante) {
+        funcionesEstudiantes.cargarImagenEstudiante(idEstudiante, lblImagen);
+    }
+    private void tuTablaEstudiantesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tuTablaEstudiantesMouseClicked
+
+        int filaSeleccionada = tuTablaEstudiantes.getSelectedRow();
+
+        if (filaSeleccionada != -1) {
+            // Obtener el ID del estudiante seleccionado
+            String idEstudiante = tuTablaEstudiantes.getValueAt(filaSeleccionada, 0).toString();
+
+            // Llamar a un método para cargar la imagen en lblImagen
+            cargarImagenEstudiante(idEstudiante);
+        }
+
+
+    }//GEN-LAST:event_tuTablaEstudiantesMouseClicked
+    private void limpiarImagen() {
+        lblImagen.setIcon(null);
+    }
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        limpiarImagen();
+
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,10 +294,13 @@ public class Estudiante extends javax.swing.JFrame {
     private javax.swing.JButton BtnEstudiante;
     private javax.swing.JButton BtnProfesor;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblImagen;
     private javax.swing.JTable tuTablaEstudiantes;
     // End of variables declaration//GEN-END:variables
 }

@@ -16,27 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `grados`
+-- Table structure for table `fotos_estudiante`
 --
 
-DROP TABLE IF EXISTS `grados`;
+DROP TABLE IF EXISTS `fotos_estudiante`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `grados` (
-  `id_grado` int NOT NULL,
-  `nombre_grado` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id_grado`)
+CREATE TABLE `fotos_estudiante` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(250) DEFAULT NULL,
+  `imagen` blob,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `grados`
+-- Dumping data for table `fotos_estudiante`
 --
 
-LOCK TABLES `grados` WRITE;
-/*!40000 ALTER TABLE `grados` DISABLE KEYS */;
-INSERT INTO `grados` VALUES (1,'Primero'),(2,'Segundo');
-/*!40000 ALTER TABLE `grados` ENABLE KEYS */;
+LOCK TABLES `fotos_estudiante` WRITE;
+/*!40000 ALTER TABLE `fotos_estudiante` DISABLE KEYS */;
+/*!40000 ALTER TABLE `fotos_estudiante` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-24 20:23:14
+-- Dump completed on 2023-10-24 20:23:15
