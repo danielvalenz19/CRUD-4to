@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: gestionescolar
 -- ------------------------------------------------------
--- Server version	8.0.34
+-- Server version	8.0.35
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,29 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `catedraticos`
+-- Table structure for table `secciones`
 --
 
-DROP TABLE IF EXISTS `catedraticos`;
+DROP TABLE IF EXISTS `secciones`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `catedraticos` (
-  `id_catedratico` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(255) DEFAULT NULL,
-  `apellidos` varchar(255) DEFAULT NULL,
-  `fecha_nacimiento` varchar(250) DEFAULT NULL,
-  PRIMARY KEY (`id_catedratico`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `secciones` (
+  `id_seccion` int NOT NULL,
+  `nombre_seccion` varchar(255) DEFAULT NULL,
+  `id_grado` int DEFAULT NULL,
+  PRIMARY KEY (`id_seccion`),
+  KEY `id_grado` (`id_grado`),
+  CONSTRAINT `secciones_ibfk_1` FOREIGN KEY (`id_grado`) REFERENCES `grados` (`id_grado`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `catedraticos`
+-- Dumping data for table `secciones`
 --
 
-LOCK TABLES `catedraticos` WRITE;
-/*!40000 ALTER TABLE `catedraticos` DISABLE KEYS */;
-INSERT INTO `catedraticos` VALUES (1,'Jose','nocs','12/12/12'),(2,'Marian','Gonzales','12/12/12'),(5,'Pedro','LINARES','12/12/12');
-/*!40000 ALTER TABLE `catedraticos` ENABLE KEYS */;
+LOCK TABLES `secciones` WRITE;
+/*!40000 ALTER TABLE `secciones` DISABLE KEYS */;
+INSERT INTO `secciones` VALUES (1,'A',1),(2,'B',1),(3,'A',2),(4,'B',2);
+/*!40000 ALTER TABLE `secciones` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-24 20:23:15
+-- Dump completed on 2023-11-02  0:35:21

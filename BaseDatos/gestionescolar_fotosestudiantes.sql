@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: gestionescolar
 -- ------------------------------------------------------
--- Server version	8.0.34
+-- Server version	8.0.35
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,31 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `inscripciones`
+-- Table structure for table `fotosestudiantes`
 --
 
-DROP TABLE IF EXISTS `inscripciones`;
+DROP TABLE IF EXISTS `fotosestudiantes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `inscripciones` (
-  `id_inscripcion` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `fotosestudiantes` (
+  `id_foto` int NOT NULL AUTO_INCREMENT,
   `id_estudiante` int DEFAULT NULL,
-  `id_seccion` int DEFAULT NULL,
-  PRIMARY KEY (`id_inscripcion`),
+  `foto_path` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_foto`),
   KEY `id_estudiante` (`id_estudiante`),
-  KEY `id_seccion` (`id_seccion`),
-  CONSTRAINT `inscripciones_ibfk_1` FOREIGN KEY (`id_estudiante`) REFERENCES `estudiantes` (`id_estudiante`),
-  CONSTRAINT `inscripciones_ibfk_2` FOREIGN KEY (`id_seccion`) REFERENCES `secciones` (`id_seccion`)
+  CONSTRAINT `fotosestudiantes_ibfk_1` FOREIGN KEY (`id_estudiante`) REFERENCES `estudiantes` (`id_estudiante`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `inscripciones`
+-- Dumping data for table `fotosestudiantes`
 --
 
-LOCK TABLES `inscripciones` WRITE;
-/*!40000 ALTER TABLE `inscripciones` DISABLE KEYS */;
-/*!40000 ALTER TABLE `inscripciones` ENABLE KEYS */;
+LOCK TABLES `fotosestudiantes` WRITE;
+/*!40000 ALTER TABLE `fotosestudiantes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `fotosestudiantes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-24 20:23:15
+-- Dump completed on 2023-11-02  0:35:21

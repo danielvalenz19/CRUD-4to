@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: gestionescolar
 -- ------------------------------------------------------
--- Server version	8.0.34
+-- Server version	8.0.35
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,27 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `fotos_estudiante`
+-- Table structure for table `profesores`
 --
 
-DROP TABLE IF EXISTS `fotos_estudiante`;
+DROP TABLE IF EXISTS `profesores`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `fotos_estudiante` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(250) DEFAULT NULL,
-  `imagen` blob,
-  PRIMARY KEY (`id`)
+CREATE TABLE `profesores` (
+  `id_profesor` int NOT NULL,
+  `nombre` varchar(255) DEFAULT NULL,
+  `apellidos` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_profesor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `fotos_estudiante`
+-- Dumping data for table `profesores`
 --
 
-LOCK TABLES `fotos_estudiante` WRITE;
-/*!40000 ALTER TABLE `fotos_estudiante` DISABLE KEYS */;
-/*!40000 ALTER TABLE `fotos_estudiante` ENABLE KEYS */;
+LOCK TABLES `profesores` WRITE;
+/*!40000 ALTER TABLE `profesores` DISABLE KEYS */;
+/*!40000 ALTER TABLE `profesores` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-24 20:23:15
+-- Dump completed on 2023-11-02  0:35:21

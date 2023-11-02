@@ -82,11 +82,14 @@ public class AgregarReCon extends javax.swing.JFrame {
         txtApellido = new javax.swing.JTextField();
         CmbSeccion = new javax.swing.JComboBox<>();
         CmbGrado = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
+        CbnCurso = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         BtnEstudiatesFrm = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         btnRepotes = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabelRegistar2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -291,7 +294,7 @@ public class AgregarReCon extends javax.swing.JFrame {
             }
         });
         jPanelRegistro.add(jButtonLimpiarR);
-        jButtonLimpiarR.setBounds(300, 370, 180, 35);
+        jButtonLimpiarR.setBounds(310, 410, 180, 35);
 
         jButtonRegistar.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jButtonRegistar.setText("REGISTAR");
@@ -301,7 +304,7 @@ public class AgregarReCon extends javax.swing.JFrame {
             }
         });
         jPanelRegistro.add(jButtonRegistar);
-        jButtonRegistar.setBounds(110, 370, 170, 35);
+        jButtonRegistar.setBounds(120, 410, 170, 35);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel2.setText("Apellido");
@@ -332,6 +335,15 @@ public class AgregarReCon extends javax.swing.JFrame {
         jPanelRegistro.add(CmbGrado);
         CmbGrado.setBounds(260, 270, 240, 30);
 
+        jLabel4.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jLabel4.setText("Cursos");
+        jPanelRegistro.add(jLabel4);
+        jLabel4.setBounds(70, 360, 90, 20);
+
+        CbnCurso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Matematicas", "Comunicacion", "Programacion", "base de datos", "Lenguaje" }));
+        jPanelRegistro.add(CbnCurso);
+        CbnCurso.setBounds(270, 360, 240, 30);
+
         jTabbedPane1.addTab("Registar", jPanelRegistro);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CapaPresentacion/Universidad Mariano 3.jpg"))); // NOI18N
@@ -357,6 +369,13 @@ public class AgregarReCon extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Cursos");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -364,6 +383,7 @@ public class AgregarReCon extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(76, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
                     .addComponent(btnRepotes)
                     .addComponent(jButton3)
                     .addComponent(BtnEstudiatesFrm)
@@ -381,7 +401,9 @@ public class AgregarReCon extends javax.swing.JFrame {
                 .addComponent(jButton3)
                 .addGap(18, 18, 18)
                 .addComponent(btnRepotes)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(287, Short.MAX_VALUE))
         );
 
         jLabelRegistar2.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
@@ -397,18 +419,20 @@ public class AgregarReCon extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelRegistar2, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                    .addComponent(jLabelRegistar2, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9)))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(79, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jLabelRegistar2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -522,12 +546,15 @@ public class AgregarReCon extends javax.swing.JFrame {
         System.out.println("Fecha de Nacimiento: " + fechaNacimiento);
         String grado = CmbGrado.getSelectedItem().toString();
         String seccion = CmbSeccion.getSelectedItem().toString();
+        String cursoSeleccionado = CbnCurso.getSelectedItem().toString();
         System.out.println("Grado: " + grado);
         System.out.println("Sección: " + seccion);
+        System.out.println("Curso: " + cursoSeleccionado);
+
         // Guardar la información en la base de datos
         // Limpiar los campos después de guardar
         limpiarCampos();
-        JFileChooser fileChooser = new JFileChooser();//cosntructor que ejecuta el Jfilechoser que es un metodo que abre una ventana para buscar una imagen
+        JFileChooser fileChooser = new JFileChooser(); // cosntructor que ejecuta el Jfilechoser que es un metodo que abre una ventana para buscar una imagen
         int result = fileChooser.showOpenDialog(this);
 
         if (result == JFileChooser.APPROVE_OPTION) {
@@ -538,15 +565,15 @@ public class AgregarReCon extends javax.swing.JFrame {
             System.out.println("Ruta de la imagen: " + rutaImagen);
 
             // Ahora, llama al método que guarda la información y la imagen
-            guardarEstudianteConImagen(id, nombre, apellido, sexo, fechaNacimiento, rutaImagen, grado, seccion);
+            guardarEstudianteConImagen(id, nombre, apellido, sexo, fechaNacimiento, rutaImagen, grado, seccion, cursoSeleccionado);
         }
     }//GEN-LAST:event_jButtonRegistarActionPerformed
-    private void guardarEstudianteConImagen(String id, String nombre, String apellido, String sexo, String fechaNacimiento, String rutaImagen, String grado, String seccion) {
+    private void guardarEstudianteConImagen(String id, String nombre, String apellido, String sexo, String fechaNacimiento, String rutaImagen, String grado, String seccion, String cursoSeleccionado) {
         Conexion db = new Conexion();
 
         try {
             Connection cn = db.getConnection();
-            String consultaSQL = "INSERT INTO estudiantes (id_estudiante, nombre, apellidos, sexo, fecha_nacimiento, imagen, grado, seccion) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            String consultaSQL = "INSERT INTO estudiantes (id_estudiante, nombre, apellidos, sexo, fecha_nacimiento, imagen, grado, seccion, cursos) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement pst = cn.prepareStatement(consultaSQL);
 
             // Código existente para la información del estudiante
@@ -557,6 +584,7 @@ public class AgregarReCon extends javax.swing.JFrame {
             pst.setString(5, fechaNacimiento);
             pst.setString(7, grado);
             pst.setString(8, seccion);
+            pst.setString(9, cursoSeleccionado);
             ManejadorImagenes manejadorImagenes = new ManejadorImagenes();
             // Cargar la imagen como bytes
             byte[] imagenBytes = manejadorImagenes.leerImagenComoBytes(rutaImagen);
@@ -584,6 +612,7 @@ public class AgregarReCon extends javax.swing.JFrame {
         txtApellido.setText("");
         cmbSexo.setSelectedIndex(0);  // Puedes ajustar esto según la posición de las opciones en tu combobox
         txtFecha.setText("");
+        CbnCurso.setSelectedItem(0);
     }
 
     private void limpiarConsultas() {
@@ -645,16 +674,25 @@ public class AgregarReCon extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void btnRepotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRepotesActionPerformed
-        
+
         Reportes r = new Reportes();
         r.setVisible(true);
         dispose();
 
     }//GEN-LAST:event_btnRepotesActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        Cursos c = new Cursos();
+        c.setVisible(true);
+        this.dispose();
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnEstudiatesFrm;
+    private javax.swing.JComboBox<String> CbnCurso;
     private javax.swing.JComboBox<String> CmbGrado;
     private javax.swing.JComboBox<String> CmbSeccion;
     private javax.swing.JTable TablaResultados;
@@ -664,6 +702,7 @@ public class AgregarReCon extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnRepotes;
     private javax.swing.JComboBox cmbSexo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButtonLimpiarR;
@@ -686,6 +725,7 @@ public class AgregarReCon extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelNotaEditar;
     private javax.swing.JLabel jLabelRegistar;
     private javax.swing.JLabel jLabelRegistar1;

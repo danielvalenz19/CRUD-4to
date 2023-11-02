@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: gestionescolar
 -- ------------------------------------------------------
--- Server version	8.0.34
+-- Server version	8.0.35
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,27 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `profesores`
+-- Table structure for table `catedraticos`
 --
 
-DROP TABLE IF EXISTS `profesores`;
+DROP TABLE IF EXISTS `catedraticos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `profesores` (
-  `id_profesor` int NOT NULL,
+CREATE TABLE `catedraticos` (
+  `id_catedratico` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) DEFAULT NULL,
   `apellidos` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id_profesor`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `fecha_nacimiento` varchar(250) DEFAULT NULL,
+  PRIMARY KEY (`id_catedratico`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `profesores`
+-- Dumping data for table `catedraticos`
 --
 
-LOCK TABLES `profesores` WRITE;
-/*!40000 ALTER TABLE `profesores` DISABLE KEYS */;
-/*!40000 ALTER TABLE `profesores` ENABLE KEYS */;
+LOCK TABLES `catedraticos` WRITE;
+/*!40000 ALTER TABLE `catedraticos` DISABLE KEYS */;
+INSERT INTO `catedraticos` VALUES (2,'Marian','Gonzales','12/12/12'),(5,'Pedro','Linares','12/12/12'),(6,'Atilio','Maltez','12/12/12');
+/*!40000 ALTER TABLE `catedraticos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-24 20:23:14
+-- Dump completed on 2023-11-02  0:35:21

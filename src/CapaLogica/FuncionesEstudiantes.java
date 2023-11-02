@@ -363,4 +363,57 @@ public class FuncionesEstudiantes extends Conexion {
             return "Error al obtener el reporte";
         }
     }
+
+    //metodo de cursos
+    public static void llenarTablaPorCurso(String cursoSeleccionado, JTable tabla) {
+        // Crear una conexión a la base de datos
+        Conexion conexionDB = new Conexion();
+        Connection connection = conexionDB.getConnection();
+
+        // Consulta SQL para obtener registros según el curso
+        String consultaSQL = "SELECT * FROM estudiantes WHERE cursos = ?";
+
+        try {
+            // Preparar la consulta
+            PreparedStatement pstmt = connection.prepareStatement(consultaSQL);
+            pstmt.setString(1, cursoSeleccionado);
+
+            // Ejecutar la consulta
+            ResultSet rs = pstmt.executeQuery();
+
+            // Crear un modelo de tabla para la TablaPrincipal
+            DefaultTableModel modeloTabla = new DefaultTableModel();
+            modeloTabla.addColumn("ID");
+            modeloTabla.addColumn("Nombre");
+            modeloTabla.addColumn("Apellidos");
+            modeloTabla.addColumn("Sexo");
+            modeloTabla.addColumn("Grado");
+            modeloTabla.addColumn("Sección");
+            modeloTabla.addColumn("Reporte");
+            modeloTabla.addColumn("Cursos");
+            modeloTabla.addColumn("Aprobado");
+
+            while (rs.next()) {
+                Object[] fila = new Object[9];  // Se reduce el tamaño a 9, excluyendo la columna de fecha de nacimiento
+                fila[0] = rs.getInt("id_estudiante");
+                fila[1] = rs.getString("nombre");
+                fila[2] = rs.getString("apellidos");
+                fila[3] = rs.getString("sexo");
+                fila[4] = rs.getString("grado");
+                fila[5] = rs.getString("seccion");
+                fila[6] = rs.getString("reporte");
+                fila[7] = rs.getString("cursos");
+                fila[8] = "si".equalsIgnoreCase(rs.getString("aprobado"));
+
+                modeloTabla.addRow(fila);
+            }
+
+            // Cerrar la conexión y mostrar los resultados en la tabla
+            conexionDB.close();
+            tabla.setModel(modeloTabla);
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error en la consulta SQL", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 }
