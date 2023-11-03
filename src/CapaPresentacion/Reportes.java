@@ -52,6 +52,8 @@ public class Reportes extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         CbxAprobacion = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        txtNotas = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -124,6 +126,8 @@ public class Reportes extends javax.swing.JFrame {
 
         CbxAprobacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "no", "yes" }));
 
+        jLabel8.setText("Notas");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -132,14 +136,7 @@ public class Reportes extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtReporte)
-                        .addGap(20, 20, 20))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
@@ -155,21 +152,36 @@ public class Reportes extends javax.swing.JFrame {
                                 .addComponent(txtGrado, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(131, 131, 131)
+                                        .addComponent(jLabel7)
+                                        .addGap(8, 8, 8))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(85, 85, 85)
-                                        .addComponent(jLabel7)
-                                        .addGap(8, 8, 8)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtSeccioni, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                                    .addComponent(CbxAprobacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(CbxAprobacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(131, 131, 131)
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtNotas, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnGuardarReporte)
                             .addComponent(btnReporte))
-                        .addContainerGap(43, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(470, 470, 470))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addComponent(txtReporte)))))
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(344, 344, 344)
                 .addComponent(jLabel1)
@@ -184,10 +196,11 @@ public class Reportes extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jButton1))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -214,16 +227,19 @@ public class Reportes extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(11, 11, 11)
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel7))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(CbxAprobacion)
-                                .addGap(18, 18, 18)))
+                                .addComponent(CbxAprobacion, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(txtNotas, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(11, 11, 11)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
-                            .addComponent(txtReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(29, Short.MAX_VALUE))
+                            .addComponent(txtReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26))))
         );
 
         pack();
@@ -253,27 +269,28 @@ public class Reportes extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_TablaResultadosMouseClicked
-    private void actualizarReporteEstudiante(int idEstudiante, String reporte, String aprobado) {
+    private void actualizarReporteEstudiante(int idEstudiante, String reporte, String aprobado, String notas) {
         Conexion db = new Conexion();
 
         try {
             Connection cn = db.getConnection();
-            String consultaSQL = "UPDATE estudiantes SET reporte=?, aprobado=? WHERE id_estudiante=?";
+            String consultaSQL = "UPDATE estudiantes SET reporte=?, aprobado=?, notas=? WHERE id_estudiante=?";
             PreparedStatement pst = cn.prepareStatement(consultaSQL);
 
             pst.setString(1, reporte);
             pst.setString(2, aprobado);
-            pst.setInt(3, idEstudiante);
+            pst.setString(3, notas);
+            pst.setInt(4, idEstudiante);
 
             int filasActualizadas = pst.executeUpdate();
 
             if (filasActualizadas > 0) {
-                JOptionPane.showMessageDialog(null, "Reporte y aprobado del estudiante guardados correctamente.");
+                JOptionPane.showMessageDialog(null, "Reporte, aprobado y notas del estudiante guardados correctamente.");
             } else {
-                JOptionPane.showMessageDialog(null, "No se pudo guardar el reporte y el aprobado del estudiante.");
+                JOptionPane.showMessageDialog(null, "No se pudo guardar el reporte, el aprobado y las notas del estudiante.");
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al guardar el reporte y el aprobado del estudiante: " + e);
+            JOptionPane.showMessageDialog(null, "Error al guardar el reporte, el aprobado y las notas del estudiante: " + e);
         } finally {
             db.close(); // Cerrar la conexión al finalizar
         }
@@ -298,14 +315,18 @@ public class Reportes extends javax.swing.JFrame {
             // Obtener la selección del ComboBox CbxAprobacion
             String aprobado = CbxAprobacion.getSelectedItem().toString();
 
+            // Obtener el texto del txtNotas
+            String notas = txtNotas.getText();
+
             // Verificar si el campo reporte no está vacío
             if (!reporte.isEmpty()) {
                 // Actualizar la información en la base de datos
-                actualizarReporteEstudiante(Integer.parseInt(id.toString()), reporte, aprobado);
+                actualizarReporteEstudiante(Integer.parseInt(id.toString()), reporte, aprobado, notas);
 
                 // Limpiar los campos después de guardar
                 txtReporte.setText("");
                 CbxAprobacion.setSelectedIndex(0); // Puedes establecer el índice según tu lógica de selección inicial
+                txtNotas.setText(""); // Limpiar el campo de notas
             } else {
                 JOptionPane.showMessageDialog(null, "El campo de reporte está vacío. Por favor, ingrese un reporte.");
             }
@@ -350,10 +371,12 @@ public class Reportes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtGrado;
     private javax.swing.JTextField txtIdEstudiante;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNotas;
     private javax.swing.JTextField txtReporte;
     private javax.swing.JTextField txtSeccioni;
     // End of variables declaration//GEN-END:variables

@@ -392,9 +392,10 @@ public class FuncionesEstudiantes extends Conexion {
             modeloTabla.addColumn("Reporte");
             modeloTabla.addColumn("Cursos");
             modeloTabla.addColumn("Aprobado");
+            modeloTabla.addColumn("Notas");
 
             while (rs.next()) {
-                Object[] fila = new Object[9];  // Se reduce el tamaño a 9, excluyendo la columna de fecha de nacimiento
+                Object[] fila = new Object[10];
                 fila[0] = rs.getInt("id_estudiante");
                 fila[1] = rs.getString("nombre");
                 fila[2] = rs.getString("apellidos");
@@ -403,7 +404,9 @@ public class FuncionesEstudiantes extends Conexion {
                 fila[5] = rs.getString("seccion");
                 fila[6] = rs.getString("reporte");
                 fila[7] = rs.getString("cursos");
-                fila[8] = "si".equalsIgnoreCase(rs.getString("aprobado"));
+                fila[8] = rs.getString("notas");
+
+                fila[9] = rs.getString("aprobado");
 
                 modeloTabla.addRow(fila);
             }
